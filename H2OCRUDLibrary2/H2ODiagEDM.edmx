@@ -1,0 +1,127 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="masterModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="MuncipalCAN">
+          <Key>
+            <PropertyRef Name="PhoneNumber" />
+          </Key>
+          <Property Name="Name" Type="nvarchar" MaxLength="50" />
+          <Property Name="PhoneNumber" Type="decimal" Precision="10" Scale="0" Nullable="false" />
+          <Property Name="Mailid" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="CANId" Type="bigint" Nullable="false" />
+          <Property Name="Latitude" Type="real" Nullable="false" />
+          <Property Name="Longitude" Type="real" Nullable="false" />
+          <Property Name="ApartmentType" Type="nvarchar" MaxLength="15" Nullable="false" />
+          <Property Name="RoofArea" Type="bigint" Nullable="false" />
+          <Property Name="FlatCount" Type="int" Nullable="false" />
+          <Property Name="PeopleCount" Type="int" Nullable="false" />
+          <Property Name="WaterMeter" Type="bit" Nullable="false" />
+          <Property Name="TapWaterSavers" Type="bit" Nullable="false" />
+          <Property Name="RWHS" Type="bit" Nullable="false" />
+          <Property Name="RWHSType" Type="nvarchar" MaxLength="15" />
+          <Property Name="RWHSOverflow" Type="bit" Nullable="false" />
+          <Property Name="BoreWellCount" Type="smallint" Nullable="false" />
+          <Property Name="FunctBoreWellCount" Type="smallint" Nullable="false" />
+          <Property Name="RecyclingPlant" Type="bit" Nullable="false" />
+          <Property Name="RecyclingPlantType" Type="nvarchar" MaxLength="15" />
+          <Property Name="PlantCapacity" Type="bigint" />
+          <Property Name="UsageScore" Type="smallint" Nullable="false" />
+        </EntityType>
+        <EntityContainer Name="masterModelStoreContainer">
+          <EntitySet Name="MuncipalCAN" EntityType="Self.MuncipalCAN" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="masterModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="MuncipalCAN">
+          <Key>
+            <PropertyRef Name="PhoneNumber" />
+          </Key>
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="PhoneNumber" Type="Decimal" Precision="10" Scale="0" Nullable="false" />
+          <Property Name="Mailid" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="CANId" Type="Int64" Nullable="false" />
+          <Property Name="Latitude" Type="Single" Nullable="false" />
+          <Property Name="Longitude" Type="Single" Nullable="false" />
+          <Property Name="ApartmentType" Type="String" MaxLength="15" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="RoofArea" Type="Int64" Nullable="false" />
+          <Property Name="FlatCount" Type="Int32" Nullable="false" />
+          <Property Name="PeopleCount" Type="Int32" Nullable="false" />
+          <Property Name="WaterMeter" Type="Boolean" Nullable="false" />
+          <Property Name="TapWaterSavers" Type="Boolean" Nullable="false" />
+          <Property Name="RWHS" Type="Boolean" Nullable="false" />
+          <Property Name="RWHSType" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+          <Property Name="RWHSOverflow" Type="Boolean" Nullable="false" />
+          <Property Name="BoreWellCount" Type="Int16" Nullable="false" />
+          <Property Name="FunctBoreWellCount" Type="Int16" Nullable="false" />
+          <Property Name="RecyclingPlant" Type="Boolean" Nullable="false" />
+          <Property Name="RecyclingPlantType" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+          <Property Name="PlantCapacity" Type="Int64" />
+          <Property Name="UsageScore" Type="Int16" Nullable="false" />
+        </EntityType>
+        <EntityContainer Name="masterEntities2" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="MuncipalCANs" EntityType="Self.MuncipalCAN" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="masterModelStoreContainer" CdmEntityContainer="masterEntities2">
+          <EntitySetMapping Name="MuncipalCANs">
+            <EntityTypeMapping TypeName="masterModel.MuncipalCAN">
+              <MappingFragment StoreEntitySet="MuncipalCAN">
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
+                <ScalarProperty Name="Mailid" ColumnName="Mailid" />
+                <ScalarProperty Name="CANId" ColumnName="CANId" />
+                <ScalarProperty Name="Latitude" ColumnName="Latitude" />
+                <ScalarProperty Name="Longitude" ColumnName="Longitude" />
+                <ScalarProperty Name="ApartmentType" ColumnName="ApartmentType" />
+                <ScalarProperty Name="RoofArea" ColumnName="RoofArea" />
+                <ScalarProperty Name="FlatCount" ColumnName="FlatCount" />
+                <ScalarProperty Name="PeopleCount" ColumnName="PeopleCount" />
+                <ScalarProperty Name="WaterMeter" ColumnName="WaterMeter" />
+                <ScalarProperty Name="TapWaterSavers" ColumnName="TapWaterSavers" />
+                <ScalarProperty Name="RWHS" ColumnName="RWHS" />
+                <ScalarProperty Name="RWHSType" ColumnName="RWHSType" />
+                <ScalarProperty Name="RWHSOverflow" ColumnName="RWHSOverflow" />
+                <ScalarProperty Name="BoreWellCount" ColumnName="BoreWellCount" />
+                <ScalarProperty Name="FunctBoreWellCount" ColumnName="FunctBoreWellCount" />
+                <ScalarProperty Name="RecyclingPlant" ColumnName="RecyclingPlant" />
+                <ScalarProperty Name="RecyclingPlantType" ColumnName="RecyclingPlantType" />
+                <ScalarProperty Name="PlantCapacity" ColumnName="PlantCapacity" />
+                <ScalarProperty Name="UsageScore" ColumnName="UsageScore" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
